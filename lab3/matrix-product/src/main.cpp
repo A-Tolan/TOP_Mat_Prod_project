@@ -4,6 +4,11 @@
 #include <Kokkos_Core.hpp>
 #include <fmt/core.h>
 #include <chrono>
+#include <fstream>
+#include <cstdlib> // pour std::getenv
+#include <numeric>
+#include <cmath>
+#include <vector>
 
 using Matrix = Kokkos::View<double**, Kokkos::LayoutRight>;
 
@@ -70,8 +75,9 @@ auto main(int argc, char* argv[]) -> int {
     double beta = drand48();
     matrix_init(C);
 
-    constexpr int num_runs = 3;
-    double total_duration = 0.0;
+    constexpr int num_runs = 5;
+    std::vector<double> durations;
+    std::vector<double> gflops_values;
 
     for (int run = 0; run < num_runs; ++run) {
       Kokkos::fence();
@@ -81,16 +87,45 @@ auto main(int argc, char* argv[]) -> int {
       auto end = std::chrono::high_resolution_clock::now();
 
       auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-      total_duration += duration;
+      durations.push_back(duration);
 
       double flops = 2.0 * m * n * k;
       double gflops = flops / (duration * 1e6); // Convert ms to seconds and FLOPs to GFLOPs
-      fmt::print("Run {} took {} ms, Performance: {:.2f} GFLOP/s\n", run + 1, duration, gflops);
+      gflops_values.push_back(gflops);
+      fmt::print("Run {} took {} ms, Performance: {:.4f} GFLOP/s\n", run + 1, duration, gflops);
     }
-    auto average_duration = static_cast<int>(std::round(total_duration / num_runs));
-    double average_gflops = (2.0 * m * n * k) / (average_duration * 1e6); // Convert ms to seconds and FLOPs to GFLOPs
+    // Calculer la moyenne et l'écart-type
+    double average_duration = std::accumulate(durations.begin(), durations.end(), 0.0) / num_runs;
+    double average_gflops = std::accumulate(gflops_values.begin(), gflops_values.end(), 0.0) / num_runs;
+
+    double duration_stddev = std::sqrt(std::accumulate(durations.begin(), durations.end(), 0.0,
+      [average_duration](double sum, double val) { return sum + (val - average_duration) * (val - average_duration); }) / num_runs);
+
+    double gflops_stddev = std::sqrt(std::accumulate(gflops_values.begin(), gflops_values.end(), 0.0,
+      [average_gflops](double sum, double val) { return sum + (val - average_gflops) * (val - average_gflops); }) / num_runs);
+
+    
     fmt::print("Average matrix product time, from naive code, over {} runs: {} ms\n", num_runs, average_duration);
-    fmt::print("Average performance: {:.2f} GFLOP/s\n", average_gflops);
+    fmt::print("Average performance: {:.4f} GFLOP/s\n", average_gflops);
+
+    const char* env_threads = std::getenv("KOKKOS_NUM_THREADS");
+    int num_threads = env_threads ? std::atoi(env_threads) : Kokkos::DefaultExecutionSpace().concurrency();
+
+
+    // Save results to a file for plotting
+    std::ofstream results_file("results.txt", std::ios::app);
+    if (results_file.is_open()) {
+      results_file << "Matrix dimensions: M=" << m << ", N=" << n << ", K=" << k << "\n";
+      results_file << "Average duration: " << average_duration << " ms\n";
+      results_file << "Duration standard deviation: " << duration_stddev << " ms\n";
+      results_file << "Average performance: " << average_gflops << " GFLOP/s\n";
+      results_file << "Performance standard deviation: " << gflops_stddev << " GFLOP/s\n";
+      results_file << "Number of threads: " << num_threads << "\n";
+      results_file << "----------------------------------------\n";
+      results_file.close();
+    } else {
+      fmt::print("Error: Unable to open results file for writing.\n");
+    }
   }
   Kokkos::finalize();
   return 0;

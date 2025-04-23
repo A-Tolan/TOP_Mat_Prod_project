@@ -1,0 +1,7 @@
+.vscode
+.ninja_log
+/build
+/build.ninja
+results.csv
+results.txt
+*.png

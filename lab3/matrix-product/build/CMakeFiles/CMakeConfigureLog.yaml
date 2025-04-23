@@ -577,3 +577,32 @@ events:
         
       exitCode: 1
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "build/_deps/kokkos-src/cmake/kokkos_test_cxx_std.cmake:98 (try_compile)"
+      - "build/_deps/kokkos-src/cmake/kokkos_tribits.cmake:158 (include)"
+      - "build/_deps/kokkos-src/CMakeLists.txt:220 (kokkos_setup_build_environment)"
+    directories:
+      source: "/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/corner_cases/CMakeFiles/CMakeTmp"
+      binary: "/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/corner_cases/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "cmake/Modules"
+    buildResult:
+      variable: "CAN_COMPILE_CPP17"
+      cached: true
+      stdout: |
+        Change Dir: '/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/corner_cases/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_26d61
+        [1/2] /usr/bin/c++   -std=gnu++17 -o CMakeFiles/cmTC_26d61.dir/cplusplus17.cpp.o -c /home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-src/cmake/compile_tests/cplusplus17.cpp
+        [2/2] : && /usr/bin/c++   CMakeFiles/cmTC_26d61.dir/cplusplus17.cpp.o -o cmTC_26d61   && :
+        
+      exitCode: 0
+...

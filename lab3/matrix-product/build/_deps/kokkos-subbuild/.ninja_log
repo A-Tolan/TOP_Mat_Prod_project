@@ -1,0 +1,21 @@
+# ninja log v5
+1	12	1745313794948866700	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-mkdir	dbcb2e1960048f0c
+1	12	1745313794948866700	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-mkdir	dbcb2e1960048f0c
+12	4652	1745313799587872751	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-download	7285b4dc4c4f6b3c
+12	4652	1745313799587872751	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-download	7285b4dc4c4f6b3c
+4652	4663	0	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-update	91401e77c52c3f3c
+4652	4663	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-update	91401e77c52c3f3c
+4663	4674	1745313799609872779	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-patch	33d64d6f0d319cf3
+4663	4674	1745313799609872779	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-patch	33d64d6f0d319cf3
+4674	4686	1745313799621872795	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-configure	2e9d7585a65f6a61
+4674	4686	1745313799621872795	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-configure	2e9d7585a65f6a61
+4686	4698	1745313799633872810	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-build	d778f89b25d990cc
+4686	4698	1745313799633872810	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-build	d778f89b25d990cc
+4698	4708	1745313799644872825	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-install	6dad8700c53a4ff7
+4698	4708	1745313799644872825	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-install	6dad8700c53a4ff7
+4709	4720	1745313799656872840	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-test	b2baaed5f47ffad4
+4709	4720	1745313799656872840	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-test	b2baaed5f47ffad4
+4720	4738	1745313799674872864	CMakeFiles/kokkos-populate-complete	be70aee642adf278
+4720	4738	1745313799674872864	kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-done	be70aee642adf278
+4720	4738	1745313799674872864	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/CMakeFiles/kokkos-populate-complete	be70aee642adf278
+4720	4738	1745313799674872864	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-subbuild/kokkos-populate-prefix/src/kokkos-populate-stamp/kokkos-populate-done	be70aee642adf278

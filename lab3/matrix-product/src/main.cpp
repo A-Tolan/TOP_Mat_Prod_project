@@ -3,6 +3,7 @@
 
 #include <Kokkos_Core.hpp>
 #include <fmt/core.h>
+#include <chrono>
 
 using Matrix = Kokkos::View<double**, Kokkos::LayoutRight>;
 
@@ -69,10 +70,24 @@ auto main(int argc, char* argv[]) -> int {
     double beta = drand48();
     matrix_init(C);
 
-    Kokkos::fence();
-    matrix_product(alpha, A, B, beta, C);
-    Kokkos::fence();
-  }
-  Kokkos::finalize();
-  return 0;
-}
+    constexpr int num_runs = 3;
+    double total_duration = 0.0;
+
+    for (int run = 0; run < num_runs; ++run) {
+      Kokkos::fence();
+      auto start = std::chrono::high_resolution_clock::now();
+      matrix_product(alpha, A, B, beta, C);
+      Kokkos::fence();
+      auto end = std::chrono::high_resolution_clock::now();
+
+      auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+      total_duration += duration;
+      fmt::print("Run {} took {} ms\n", run + 1, duration);
+        }
+
+        auto average_duration = static_cast<int>(std::round(total_duration / num_runs));
+        fmt::print("Average matrix product time, from naive code, over {} runs: {} ms\n", num_runs, average_duration);
+      }
+      Kokkos::finalize();
+      return 0;
+    }

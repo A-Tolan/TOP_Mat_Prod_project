@@ -1,4 +1,5 @@
 .vscode
+.git
 .ninja_log
 /build
 /build.ninja

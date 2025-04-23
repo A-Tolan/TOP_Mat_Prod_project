@@ -82,12 +82,16 @@ auto main(int argc, char* argv[]) -> int {
 
       auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
       total_duration += duration;
-      fmt::print("Run {} took {} ms\n", run + 1, duration);
-        }
 
-        auto average_duration = static_cast<int>(std::round(total_duration / num_runs));
-        fmt::print("Average matrix product time, from naive code, over {} runs: {} ms\n", num_runs, average_duration);
-      }
-      Kokkos::finalize();
-      return 0;
+      double flops = 2.0 * m * n * k;
+      double gflops = flops / (duration * 1e6); // Convert ms to seconds and FLOPs to GFLOPs
+      fmt::print("Run {} took {} ms, Performance: {:.2f} GFLOP/s\n", run + 1, duration, gflops);
     }
+    auto average_duration = static_cast<int>(std::round(total_duration / num_runs));
+    double average_gflops = (2.0 * m * n * k) / (average_duration * 1e6); // Convert ms to seconds and FLOPs to GFLOPs
+    fmt::print("Average matrix product time, from naive code, over {} runs: {} ms\n", num_runs, average_duration);
+    fmt::print("Average performance: {:.2f} GFLOP/s\n", average_gflops);
+  }
+  Kokkos::finalize();
+  return 0;
+}

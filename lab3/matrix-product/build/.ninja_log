@@ -68,3 +68,15 @@
 3	72	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/generated/Kokkos_Version_Info.cpp	904bbd00e2d7f21c
 4	1215	1745397659411689338	src/CMakeFiles/top.matrix_product.dir/main.cpp.o	ff0a1484154baebd
 1215	1330	1745397659526689628	src/top.matrix_product	947974db6c4edce1
+3	78	0	_deps/kokkos-build/CMakeFiles/AlwaysCheckGit	904bbd00e2d7f21c
+3	78	0	_deps/kokkos-build/generated/Kokkos_Version_Info.cpp	904bbd00e2d7f21c
+3	78	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/CMakeFiles/AlwaysCheckGit	904bbd00e2d7f21c
+3	78	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/generated/Kokkos_Version_Info.cpp	904bbd00e2d7f21c
+3	1218	1745400471098235295	src/CMakeFiles/top.matrix_product.dir/main.cpp.o	ff0a1484154baebd
+1218	1331	1745400471211235417	src/top.matrix_product	947974db6c4edce1
+3	73	0	_deps/kokkos-build/CMakeFiles/AlwaysCheckGit	904bbd00e2d7f21c
+3	73	0	_deps/kokkos-build/generated/Kokkos_Version_Info.cpp	904bbd00e2d7f21c
+3	73	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/CMakeFiles/AlwaysCheckGit	904bbd00e2d7f21c
+3	73	0	/home/andreea/Documents/Projects_VScode/chps/TOP/Top_Eval/TOP_Mat_Prod_project/lab3/matrix-product/build/_deps/kokkos-build/generated/Kokkos_Version_Info.cpp	904bbd00e2d7f21c
+3	1204	1745400631044428231	src/CMakeFiles/top.matrix_product.dir/main.cpp.o	ff0a1484154baebd
+1204	1316	1745400631156428380	src/top.matrix_product	947974db6c4edce1
